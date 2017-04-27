@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.app.first.board.model.BoardVo" alias="BoardVo"/>
+		<typeAlias type="com.app.first.board.model.BoardSearchVo" alias="BoardSearchVo"/>
+		<typeAlias type="com.app.first.user.model.UserVo" alias="UserVo"/>
+		<typeAlias type="com.app.permission.model.PermissionVo" alias="PermissionVo"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/app/first/board/mapper/sqlmap/Board.xml"/>
+		<mapper resource="com/app/first/user/mapper/sqlmap/User.xml"/>
+	</mappers>
+	
+</configuration>
