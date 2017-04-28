@@ -10,7 +10,7 @@
       <a id="logo-container" href="#" class="brand-logo white-text">FootBall Club</a>
       <ul class="right hide-on-med-and-down">
       	<li><a href="#">클럽</a></li>     
-      	<li><a href="#">회원가입</a></li>
+      	<li><a href="${pageContext.request.contextPath}/signup">회원가입</a></li>
         <li>
         	<a class="dropdown-button" href="#" data-activates="dropdown1">
         		<i class="material-icons">more_vert</i>
