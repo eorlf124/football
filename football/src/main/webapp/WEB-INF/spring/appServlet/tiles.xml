@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC
+	"-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Main 타일 -->
+	<definition name="main_template" template="/WEB-INF/views/template/mainTemplate.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header/header.jsp" />
+		<put-attribute name="article" value="/WEB-INF/views/header/article.jsp" />
+	</definition>
+
+
+	<definition name="home" extends="main_template">
+		<put-attribute name="body" value="/WEB-INF/views/main/home.jsp" />
+	</definition>
+
+
+	<definition name="boardList" extends="main_template">
+		<put-attribute name="body" value="/WEB-INF/views/board/boardList.jsp" />
+	</definition>
+
+	<definition name="boardInsert" extends="main_template">
+		<put-attribute name="body" value="/WEB-INF/views/board/boardInsert.jsp" />
+	</definition>
+
+	<definition name="boardView" extends="main_template">
+		<put-attribute name="body" value="/WEB-INF/views/board/boardView.jsp" />
+	</definition>
+
+</tiles-definitions>
+
+
+
+
+
+
+
