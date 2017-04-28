@@ -15,7 +15,7 @@
 				</h5>
 			</div>
 			<div class="row center">
-				<a href="#" id="download-button"
+				<a href="login.do" id="download-button"
 					class="btn-large waves-effect waves-blue teal lighten-1">Login</a>
 			</div>
 			<br>
