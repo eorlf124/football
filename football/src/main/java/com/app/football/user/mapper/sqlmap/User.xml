@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.app.football.user.mapper.LoginMapper">
+<!-- 	<cache /> -->
+
+
+	<!-- ID 로 사용자 조회 -->
+	<select id="getUserByUserId" resultType="UserVo" parameterType="String">
+		SELECT 
+			USER_ID AS userId, 
+			PASS_WORD AS password, 
+			USER_NAME AS userName,
+			E_MAIL AS email
+		FROM 
+			USER 
+		WHERE 
+			USER_ID = #{userId}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
