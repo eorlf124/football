@@ -11,14 +11,14 @@
 	<!-- ID 로 사용자 조회 -->
 	<select id="getUserByUserId" resultType="UserVo" parameterType="String">
 		SELECT 
-			USER_ID AS userId, 
-			PASS_WORD AS password, 
+			USER_ID AS user_id, 
+			PASS_WORD AS pass_word, 
 			USER_NAME AS userName,
-			E_MAIL AS email
+			E_MAIL AS e_mail
 		FROM 
 			USER 
 		WHERE 
-			USER_ID = #{userId}
+			USER_ID = #{user_id}
 	</select>
 </mapper>
 
