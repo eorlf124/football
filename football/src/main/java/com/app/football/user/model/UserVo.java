@@ -3,21 +3,44 @@ package com.app.football.user.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class UserVo implements Serializable{
+public class UserVo implements Serializable {
 
 	private static final long serialVersionUID = 6794985593025051901L;
-	
-	private String user_id;  //사용자 아이디
-	
-	private String pass_word; //사용자 패스워드
-	
-	private String e_mail; //사용자 이메일
-	
-	private int login_fail_cnt; //사용자 로그인 실패 횟수
-	
-	private Timestamp last_login_dt; //사용자 마지막 로그인 시간
-	
-	private Timestamp sign_up_dt; //사용자 회원가입 시간
+
+	private String user_id; // 사용자 아이디
+	private String pass_word; // 사용자 패스워드
+	private String e_mail; // 사용자 이메일
+	private int login_fail_cnt; // 사용자 로그인 실패 횟수
+	private Timestamp last_login_dt; // 사용자 마지막 로그인 시간
+	private Timestamp sign_up_dt; // 사용자 회원가입 시간
+	private String userName; // 사용자 이름
+
+	private boolean idCheck; // 회원가입 ID 중복 체크
+	private String conPassword; // 회원가입 비밀번호 확인
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getConPassword() {
+		return conPassword;
+	}
+
+	public void setConPassword(String conPassword) {
+		this.conPassword = conPassword;
+	}
+
+	public boolean isIdCheck() {
+		return idCheck;
+	}
+
+	public void setIdCheck(boolean idCheck) {
+		this.idCheck = idCheck;
+	}
 
 	public String getUser_id() {
 		return user_id;
@@ -66,5 +89,5 @@ public class UserVo implements Serializable{
 	public void setSIGN_UP_DT(Timestamp sIGN_UP_DT) {
 		sign_up_dt = sIGN_UP_DT;
 	}
-	
+
 }
