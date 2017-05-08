@@ -5,5 +5,6 @@ import com.app.football.user.model.UserVo;
 public interface LoginDao {
 
 	public UserVo getUserById(String userId) throws Exception;
+	
 }
 
