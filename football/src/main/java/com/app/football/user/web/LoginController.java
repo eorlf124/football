@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,18 +49,33 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login_proc(@ModelAttribute("userVo") UserVo userVo, Locale locale, Model model) throws Exception {
+	public String login_proc(@ModelAttribute("userVo") UserVo userVo, Locale locale, Model model, HttpSession session) throws Exception {
 		logger.info("로그인 후 메인페이지 접속.", locale);
-		
-		loginService.selectUser(userVo); 
+		session.setAttribute("userVo", loginService.userSelectUser(userVo.getUser_id()));
+		loginService.uptUserLastLoingdttm(userVo.getUser_id());
 		return "home";
 	}
 	
 	@RequestMapping(value="/idcheck", method=RequestMethod.POST)
-	public @ResponseBody UserVo id_check(@RequestParam("id")String id, Model model, HttpSession session)
+	public @ResponseBody UserVo id_check(@RequestParam("id")String id, Model model) throws Exception
 	{
-		UserVo userVo = new UserVo();
+		UserVo userVo = loginService.userSelectUser(id);
 		return userVo;
+	}
+	
+	@RequestMapping(value="/loginfail", method=RequestMethod.POST)
+	public @ResponseBody UserVo login_fail(@RequestParam("id")String id) throws Exception
+	{
+		loginService.uptUserLoginFailcnt(id);
+		UserVo userVo = loginService.getUserByloginfail(id);
+		return userVo;	  
+	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpSession session)
+	{
+		session.invalidate();
+		return "redirect:/";
 	}
 	
 	

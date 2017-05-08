@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="index-banner" class="parallax-container">
 	<div class="section no-pad-bot">
@@ -14,10 +14,12 @@
 					프론트엔드 프레임워크
 				</h5>
 			</div>
+			<c:if test="${userVo==null }">
 			<div class="row center">
 				<a href="login.do" id="download-button"
 					class="btn-large waves-effect waves-blue teal lighten-1">Login</a>
 			</div>
+			</c:if>
 			<br>
 			<br>
 			

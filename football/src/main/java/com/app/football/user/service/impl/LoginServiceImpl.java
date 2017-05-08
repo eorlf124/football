@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
+
+
+
 import com.app.football.user.dao.LoginDao;
 import com.app.football.user.model.UserVo;
 import com.app.football.user.service.LoginService;
@@ -17,11 +21,27 @@ public class LoginServiceImpl implements LoginService {
 	public LoginDao dao;
  
 	@Override
-	public UserVo selectUser(UserVo vo) throws Exception {
+	public UserVo userSelectUser(String id) throws Exception {
 		// TODO Auto-generated method stub
-		UserVo loginVo = dao.getUserById(vo.getUser_id());
-		
-		return loginVo;
+		return dao.getUserById(id);
+	}
+
+	@Override
+	public void uptUserLoginFailcnt(String id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.uptUserLoginFailcnt(id); 
+	}
+
+	@Override 
+	public UserVo getUserByloginfail(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getUserByloginfail(id);
+	}
+
+	@Override
+	public void uptUserLastLoingdttm(String id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.uptUserLastLoingdttm(id);
 	}
 
 }

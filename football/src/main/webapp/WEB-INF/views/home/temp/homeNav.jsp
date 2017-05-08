@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core" %>
  <nav class="blue lighten-2" role="navigation">
 	 <ul id="dropdown1" class="dropdown-content">
 		<li><a href="#!">소개</a></li>
@@ -11,6 +11,9 @@
       <ul class="right hide-on-med-and-down">
       	<li><a href="#">클럽</a></li>     
       	<li><a href="${pageContext.request.contextPath}/signup">회원가입</a></li>
+      	<c:if test="${userVo!=null }">
+      	<li><a href="${pageContext.request.contextPath}/logout">로그아웃</a></li>
+      	</c:if>
         <li>
         	<a class="dropdown-button" href="#" data-activates="dropdown1">
         		<i class="material-icons">more_vert</i>
