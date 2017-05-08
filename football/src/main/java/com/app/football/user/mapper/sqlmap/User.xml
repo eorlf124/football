@@ -5,8 +5,10 @@
 
 
 <mapper namespace="com.app.football.user.mapper.LoginMapper">
+
 <!-- 	<cache /> -->
 
+     
 
 	<!-- ID 로 사용자 조회 -->
 	<select id="getUserByUserId" resultType="UserVo" parameterType="String">
@@ -20,8 +22,24 @@
 		WHERE 
 			USER_ID = #{user_id}
 	</select>
+	
+	<update id="uptUserLoginFailcnt" parameterType="String">
+	update user set LOGIN_FAIL_CNT = login_fail_cnt+1 where USER_ID = #{user_id}
+	</update> 
+	
+	<select id="getUserByloginfail" resultType="UserVo" parameterType="String">
+	SELECT 
+	LOGIN_FAIL_CNT AS login_fail_cnt, 
+	USER_ID AS user_id 
+	FROM USER
+	WHERE USER_ID = #{user_id}
+	</select>
+	
+	<update id="uptUserLastLoingdttm" parameterType="String">
+	update user set last_login_dt = sysdate() where USER_ID = #{user_id}
+	</update>
 </mapper>
-
+ 
 
 
 

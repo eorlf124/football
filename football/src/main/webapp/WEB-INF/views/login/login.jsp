@@ -101,11 +101,31 @@ $('#login_btn').on('click',function(){
 			data : {"id":user_id},
 			type : "post",
 			success : function(data){
-				alert(data.user_id);
+				if(data.user_id==null)
+					{
+					alert("아이디가 존재하지 않습니다.");
+					return false;
+					}
+				else if(data.pass_word!=pass_word)
+				{
+					alert("패스워드가 틀렸습니다.");
+					$.ajax({
+						url : "${pageContext.request.contextPath}/loginfail",
+						data : {"id":user_id},
+						type : "post",
+						success : function(data){
+						}
+						})
+					return false;
+				}
+				else
+					{
+					$('form[name=login_form]').attr('action','${pageContext.request.contextPath}/login.do');
+					$('form[name=login_form]').submit(); 
+					}
 		}
 	});
-     	/* $('form[name=login_form]').attr('action','${pageContext.request.contextPath}/login.do');
-		$('form[name=login_form]').submit(); */
+     	
       }
 });
 </script>
