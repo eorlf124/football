@@ -74,9 +74,4 @@ public class SignUpController {
 		
 	}
 	
-	@RequestMapping(value="/signupok")
-	public String signUpOk()throws Exception{
-		return "signUpOk";
-	}
-	
 }
