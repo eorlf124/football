@@ -10,6 +10,7 @@
 	
 	<mappers>
 		<mapper resource="com/app/football/user/mapper/sqlmap/User.xml"/>
+		<mapper resource="com/app/football/user/mapper/sqlmap/SignUp.xml"/>
 	</mappers>
 	
 </configuration>

@@ -37,7 +37,7 @@
 			<div class="col s12 m8 offset-m2">
 				<div class="card-panel hoverable col s12">
 					<h4 class="center-align"><a href='${pageContext.request.contextPath}'>FootBall Club</a></h4>
-					<form:form action="signup" method="post" commandName="userVo">
+					<form:form id="signup" action="signup" method="post" commandName="signUpVo">
 						<div class="row">
 							<div class="input-field col s8">
 								<form:input path="user_id" class="validate"/>
@@ -106,7 +106,7 @@ $(function(){
 //                 xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
 //             },
 			success : function(data) {
-				if(data){
+				if(data != 'false'){
 					Materialize.toast('사용 가능한 ID입니다.', 4000);
 					$('#idCheckBtn').addClass('disabled');
 				}else{
@@ -161,6 +161,30 @@ $(function(){
 			$(this).addClass('valid');			 
 		}
 		 
+	});
+	
+	
+	$('#submit').on('click', function(){
+		var validate = $('.invalid').attr('name');
+		var idCheck = $('#idCheck').val();
+		
+		var conPass = $('#conPassword').val();
+		var pass = $('#pass_word').val();
+		var name = $('#userName').val();
+		var email = $('#e_mail').val();
+
+		if(idCheck == 'false'){
+			Materialize.toast('ID 중복체크를 해주세요.', 4000);
+			return false;
+		}
+		
+		
+		if(validate != undefined || conPass == '' || pass == '' || name == '' || email == ''){
+			Materialize.toast('공백이거나 올바르지 않은 입력 값이 존재합니다..', 4000);
+		}else{
+	 		$('form').submit();
+		}
+		return false;	
 	});
 	
 });

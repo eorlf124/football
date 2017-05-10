@@ -14,6 +14,10 @@
 	<definition name="home" extends="main_template">
 		<put-attribute name="body" value="/WEB-INF/views/home/temp/homeBody.jsp" />
 	</definition>
+	
+	<definition name="signUpOk" extends="main_template">
+		<put-attribute name="body" value="/WEB-INF/views/signup/signUpOk.jsp" />
+	</definition>
 
 
 </tiles-definitions>

@@ -12,22 +12,26 @@
 <!-- CSS  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/materialize.css"
-	type="text/css" rel="stylesheet" media="screen,projection" />
-<link href="${pageContext.request.contextPath}/resources/css/style.css"
-	type="text/css" rel="stylesheet" media="screen,projection" />
+<link href="${pageContext.request.contextPath}/resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+<link href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <style>
-.waves-effect.waves-blue .waves-ripple {
-	/* The alpha value allows the text and background color
-     of the button to still show through. */
-	background-color: rgba(100, 181, 246, 0.65);
+/*****************회원가입 완료창 스타일 start********************/
+.signupok {
+	height: 600px;
 }
 
-.background {
-	background-color: rgba(100, 181, 246, 0.65);
+.signupok div{
+	margin-top: 100px;
 }
+/*****************회원가입 완료창 스타일 end********************/
+
 </style>
+
+<!--  Scripts-->
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/init.js"></script>
+
 </head>
 <body>
 
@@ -40,10 +44,7 @@
 
 
 
-<!--  Scripts-->
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/materialize.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/init.js"></script>
+
 <script type="text/javascript">
 	$(function() {
 		$('.button-collapse').sideNav({
